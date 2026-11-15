@@ -1,0 +1,6 @@
+{
+  "name": "Sistem Jurnal Mengaji MI",
+  "description": "Aplikasi pencatatan dan pemantauan jurnal mengaji harian Madrasah Ibtidaiyah (MI) terhubung langsung dengan Supabase untuk Admin, Guru, dan Wali Murid.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

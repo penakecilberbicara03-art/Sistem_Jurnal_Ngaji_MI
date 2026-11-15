@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistem Jurnal Mengaji MI</title>
+    <meta
+      name="description"
+      content="Aplikasi pencatatan dan pemantauan jurnal mengaji harian Madrasah Ibtidaiyah (MI) terhubung langsung dengan Supabase untuk Admin, Guru, dan Wali Murid."
+    />
+    <meta property="og:title" content="Sistem Jurnal Mengaji MI" />
+    <meta
+      property="og:description"
+      content="Aplikasi pencatatan dan pemantauan jurnal mengaji harian Madrasah Ibtidaiyah (MI) terhubung langsung dengan Supabase untuk Admin, Guru, dan Wali Murid."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Google Fonts: Plus Jakarta Sans, DM Sans, JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              display: ['"Plus Jakarta Sans"', 'sans-serif'],
+              sans: ['"DM Sans"', 'sans-serif'],
+              mono: ['"JetBrains Mono"', 'monospace'],
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Supabase JS SDK v2 via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <style>
+      body {
+        font-family: 'DM Sans', sans-serif;
+        background-color: #f8fafc;
+        color: #0f172a;
+        -webkit-font-smoothing: antialiased;
+      }
+      h1, h2, h3, h4, .font-display {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+      .tabular-nums {
+        font-variant-numeric: tabular-nums;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-slate-50 text-slate-900 selection:bg-emerald-100 selection:text-emerald-900">
+    <!-- Kontainer Aplikasi Utama -->
+    <div id="app" class="min-h-screen"></div>
+
+    <!-- Kontainer Toast Notifikasi -->
+    <div
+      id="toast-container"
+      aria-live="polite"
+      class="fixed bottom-4 right-4 z-50 flex flex-col gap-2 max-w-sm w-full pointer-events-none px-4 sm:px-0"
+    ></div>
+
+    <!-- Kontainer Modal Konfirmasi / Dialog -->
+    <div id="modal-container" class="relative z-50"></div>
+
+    <!-- Modul Utama Aplikasi -->
+    <script type="module" src="./js/app.js"></script>
+  </body>
+</html>
