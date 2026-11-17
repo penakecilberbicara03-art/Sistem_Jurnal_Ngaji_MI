@@ -399,6 +399,13 @@ export async function renderSiswaView(container, session, onNavigate) {
                           <td class="py-3 px-4 text-right whitespace-nowrap">
                             <button
                               type="button"
+                              data-view-raport="${escapeHtml(s.id)}"
+                              class="text-xs font-semibold text-blue-600 hover:text-blue-800 mr-3"
+                            >
+                              Rapot
+                            </button>
+                            <button
+                              type="button"
                               data-edit-student="${escapeHtml(s.id)}"
                               class="text-xs font-semibold text-emerald-700 hover:text-emerald-900 mr-3"
                             >
@@ -461,6 +468,18 @@ export async function renderSiswaView(container, session, onNavigate) {
       contentEl.querySelector('#btn-quick-add-class')?.addEventListener('click', () => onNavigate('kelas'));
       contentEl.querySelector('#btn-empty-create-class')?.addEventListener('click', () => onNavigate('kelas'));
     }
+
+    // Event listener untuk tombol lihat rapot
+    contentEl.querySelectorAll('[data-view-raport]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-view-raport');
+        if (typeof renderRapotView === 'function') {
+          renderRapotView('siswa-content', id);
+        } else {
+          showToast('Modul rapot belum dimuat.', 'error');
+        }
+      });
+    });
 
     contentEl.querySelectorAll('[data-edit-student]').forEach((btn) => {
       btn.addEventListener('click', () => {
